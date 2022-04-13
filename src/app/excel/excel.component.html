@@ -1,0 +1,28 @@
+<input type="file" (change)="onChange($event)" #inputFile> 
+<div *ngIf="isExcelFile === false">
+  No es un archivo Excel
+</div>
+
+<span *ngIf="spinnerEnabled" class="k-i-loading k-icon"></span>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+      <th scope="col">Folio</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">URL LinkedIn</th>
+      <th scope="col">Puesto</th>
+      <th scope="col">Número</th>
+      <th scope="col">Correo</th>
+        </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let item of dataSheet, let i = index;">
+          <td>{{ i + 1 }}</td>
+          <td>{{item.Nombre}}</td>
+          <td>{{item['URL LinkedIn']}}</td>
+          <td>{{item.Puesto}}</td>
+          <td>{{ item['Número'] }}</td>
+          <td>{{item.Correo}}</td>
+      </tr>
+    </tbody>
+    </table>
